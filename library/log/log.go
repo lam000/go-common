@@ -3,8 +3,8 @@ package log
 import (
 	"context"
 	"fmt"
+	"github.com/lam000/go-common/library/trace"
 	"github.com/natefinch/lumberjack"
-	"go-common/library/trace"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )

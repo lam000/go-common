@@ -1,4 +1,4 @@
-module go-common
+module github.com/lam000/go-common
 
 go 1.14
 

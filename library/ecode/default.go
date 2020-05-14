@@ -2,8 +2,8 @@ package ecode
 
 import (
 	"fmt"
+	"github.com/lam000/go-common/library/util/recovery"
 	"github.com/pkg/errors"
-	"go-common/library/util/recovery"
 )
 
 var (
