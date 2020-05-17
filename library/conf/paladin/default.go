@@ -4,16 +4,18 @@ import (
 	"context"
 	"errors"
 	"flag"
+	"github.com/lam000/go-common/library/conf/env"
+	"strings"
 )
 
 var (
 	// DefaultClient default client.
 	DefaultClient Client
-	confPath      string
+	path          string
 )
 
 func init() {
-	flag.StringVar(&confPath, "conf", "", "default config path")
+	flag.StringVar(&path, "conf", "", "default config path")
 }
 
 // Init init config client.
@@ -21,7 +23,8 @@ func init() {
 // Otherwise we could pass args to init remote client
 // args[0]: driver name, string type
 func Init(args ...interface{}) (err error) {
-	if confPath != "" {
+	if path != "" {
+		confPath := strings.Trim(path, "/") + "/" + env.DeployEnv
 		DefaultClient, err = NewFile(confPath)
 	} else {
 		var (
