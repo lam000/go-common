@@ -11,6 +11,11 @@ import (
 type TOML = Map
 
 func (m *TOML) Set(text string) error {
+	if err := m.UnmarshalText([]byte(text)); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func (m *TOML) UnmarshalText(text []byte) error {
